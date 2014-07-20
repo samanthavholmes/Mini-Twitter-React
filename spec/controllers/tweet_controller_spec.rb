@@ -48,5 +48,37 @@ describe TweetsController do
     end
   end
 
+  describe '#create' do
+    it "creates a new tweet" do
+      expect{
+        post :create, { tweet: { content: 'some content' } }
+      }.to change{Tweet.count}.by(1)
+    end
+
+    it "associates the tweet with the given hashtags" do
+      hashtag = Hashtag.create(name: 'some name')
+      attributes = { tweet: { content: 'some content' },
+                     hashtags: [hashtag.name] }
+      post :create, attributes
+      hashtag.reload
+      expect(hashtag.tweets.count).to eq(1)
+    end
+
+    it "creates the associated hashtags if they don't already exist" do
+      expect{
+        attributes = { tweet: { content: 'some content' },
+                     hashtags: ['some name'] }
+        post :create, attributes
+      }.to change{Hashtag.count}.by(1)
+    end
+
+    it "returns the associated tweet as JSON with hashtags" do
+      hashtag = Hashtag.create(name: 'some name')
+      attributes = { tweet: { content: 'some content' },
+                     hashtags: [hashtag.name] }
+      post :create, attributes
+      expect(response.body).to eq(Tweet.last.to_json(methods: :hashtag_names))
+    end
+  end
 
 end
