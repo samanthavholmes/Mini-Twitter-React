@@ -18,7 +18,7 @@ describe TweetsController do
         Tweet.create(content: 'some content')
       end
       get :recent
-      p JSON.parse(response.body)
+
       expect(JSON.parse(response.body).length).to eq(50)
     end
   end
