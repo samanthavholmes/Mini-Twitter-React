@@ -17,7 +17,7 @@ development:
   encoding: unicode
   database: twitter_dashboard_api_development
   pool: 5
-  username: twitter_dashboard_api
+  username:
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -43,7 +43,7 @@ test:
   encoding: unicode
   database: twitter_dashboard_api_test
   pool: 5
-  username: twitter_dashboard_api
+  username:
   password:
 
 production:
@@ -51,5 +51,5 @@ production:
   encoding: unicode
   database: twitter_dashboard_api_production
   pool: 5
-  username: twitter_dashboard_api
+  username:
   password:
