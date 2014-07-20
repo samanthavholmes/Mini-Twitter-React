@@ -15,11 +15,18 @@ class TweetsController < ApplicationController
   end
 
   def create
-    tweet = Tweet.create(params[:tweet])
+    tweet = Tweet.new(params[:tweet])
+    tweet.content ||= Faker::Lorem.sentence
+    tweet.username ||= Faker::Name.name
+    tweet.handle ||= "@" + Faker::Internet.user_name
+    tweet.avatar_url ||= Faker::Avatar.image(tweet.username)
+    tweet.save
+
     hashtags_names = params[:hashtags] || []
     hashtags_names.each do |name|
       tweet.hashtags << Hashtag.first_or_create(name: name)
     end
+
     render json: tweet.to_json(methods: :hashtag_names)
   end
 
