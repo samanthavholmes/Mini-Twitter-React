@@ -28,3 +28,6 @@ $ rails server
     }
   ]
   ```
+
+`/search/:hashtag` returns the 50 most recent tweets associated with the given hashtag, with a format similar to the `/recent` endpoint. Will return an empty body with a status code of 404.
+
