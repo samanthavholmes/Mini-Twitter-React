@@ -1,3 +1,7 @@
+p {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+
 #top-nav {
   position: fixed;
   background: #55ACEE;
@@ -36,4 +40,35 @@
   position: absolute;
   top: 15px;
   right: 24px;
+}
+
+.container {
+  margin-top: 70px;
+}
+
+#tweet-box {
+  height: 160px;
+  width: 320px;
+  text-align: center;
+  background: #00A5D5;
+  padding: 6px;
+  border-radius: 18px
+}
+
+#tweet-box-title {
+  color: #ccc;
+}
+
+input[type=submit] {
+  float: right;
+  padding: 8px 15px;
+  background: #ccc;
+  border: 0 none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+textarea {
+  resize: none;
 }
