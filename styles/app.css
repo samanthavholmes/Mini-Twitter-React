@@ -32,6 +32,10 @@ h3 {
   color: #66757F;
 }
 
+p {
+  margin: 0;
+}
+
 #top-nav {
   position: fixed;
   background: #55ACEE;
@@ -113,5 +117,29 @@ h3 {
   padding: 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.tweet-content {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 13px;
+  max-width: 340px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
+
+.full-name {
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.username,
+.timestamp {
+  color: #B1BEC8;
 }
 
