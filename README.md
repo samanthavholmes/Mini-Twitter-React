@@ -1,4 +1,4 @@
-## Lil' Twitter API
+## Lil' Twitter
 
 Part of Dev Bootcamp's thick client challenge for the 2014 Chorus Frogs.
 
@@ -11,9 +11,9 @@ $ rake db:create && rake db:migrate && rake db:seed
 $ rails server
 ```
 
-### Endpoints
+### Endpoint Documentation
 
-`/recent` returns the 50 most recently created tweets in JSON format.
+`/recent` returns the 50 most recently created tweets in JSON format. The response body looks like this:
 
   ```
   [
@@ -28,9 +28,9 @@ $ rails server
   ]
   ```
 
-`/search/:hashtag` returns the 50 most recent tweets associated with the given hashtag, with a format similar to the `/recent` endpoint. Will return an empty body with a status code of 404.
+`/search/:hashtag` returns the 50 most recent tweets associated with the given hashtag, with a format similar to the `/recent` endpoint. Will return an empty body with a status code of 404 if the hastag does not exist.
 
-`POST /tweets/create` creates a new a tweet and associates it with the specified hashtags. Hashtags that did not previously exist are also created. a request body should take this format:
+`POST /tweets/create` creates a new a tweet and associates it with the specified hashtags, if provided. Hashtags that did not previously exist are also created. a request body should take this format:
 
   ```
     "tweet":
