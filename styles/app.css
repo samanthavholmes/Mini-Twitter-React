@@ -41,10 +41,12 @@ p {
   background: #55ACEE;
   height: 50px;
   width: 100%;
+  min-width: 768px;
   top: 0;
   left: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   text-align: center;
+  z-index: 2;
 }
 
 #brand {
@@ -77,13 +79,16 @@ p {
 }
 
 .container {
-  margin-top: 70px;
+  position: relative;
+  margin: 70px auto;
+  width: 768px;
 }
 
 #tweet-box {
   position: absolute;
   height: 160px;
-  width: 250px;
+  width: 232px;
+  max-width: 232px;
   text-align: center;
   background: #00A5D5;
   padding: 6px;
@@ -92,9 +97,10 @@ p {
 
 #trends-container {
   position: absolute;
-  top: 250px;
+  top: 180px;
   height: 258px;
-  width: 228px;
+  width: 210px;
+  max-width: 210px;
   border: 1px solid #000;
   padding: 15px;
   border-radius: 6px;
@@ -103,8 +109,8 @@ p {
 
 #tweets-container {
   position: absolute;
-  left: 300px;
-  width: 420px;
+  left: 260px;
+  width: 500px;
   border-radius: 6px;
   border: 1px solid #000;
 }
@@ -123,7 +129,7 @@ p {
   display: inline-block;
   vertical-align: top;
   font-size: 13px;
-  max-width: 340px;
+  max-width: 410px;
 }
 
 .avatar {
