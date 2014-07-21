@@ -55,3 +55,18 @@ The endpoint returns the created tweet as JSON.
       "username":"Adaline Bins",
       "hashtag_names": [ "est", "rerum", "distinctio" ] }
 ```
+
+`/hashtags/popular` returns the names of the 10 most popular hashtags. The output looks like this:
+
+```
+  [ "est",
+    "voluptas",
+    "consequatur",
+    "at",
+    "accusamus",
+    "doloremque",
+    "culpa",
+    "quod",
+    "iure",
+    "sint" ]
+```
