@@ -22,6 +22,15 @@ $ rake db:create && rake db:migrate && rake db:seed
 $ rails server
 ```
 
+to run the tests:
+```sh
+$ rake db:test:prepare
+$ rake spec
+
+$ brew install phantomjs
+$ RAILS_ENV=test bundle exec rake spec:javascript
+````
+
 ## Releases
 
 ### Release 0: Architect
