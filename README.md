@@ -75,7 +75,7 @@ The benefits of OO architecture is that it is easily extendable. Add an addition
 
 ### Endpoint Documentation
 
-`/recent` returns the 50 most recently created tweets in JSON format. The response body looks like this:
+`GET /tweets/recent` returns the 50 most recently created tweets in JSON format. The response body looks like this:
 
   ```
   [
@@ -90,9 +90,9 @@ The benefits of OO architecture is that it is easily extendable. Add an addition
   ]
   ```
 
-`/search/:hashtag` returns the 50 most recent tweets associated with the given hashtag, with a format similar to the `/recent` endpoint. Will return an empty body with a status code of 404 if the hastag does not exist.
+`GET /tweets/search/:hashtag` returns the 50 most recent tweets associated with the given hashtag, with a format similar to the `/recent` endpoint. Will return an empty body with a status code of 404 if the hastag does not exist.
 
-`POST /tweets/create` creates a new a tweet and associates it with the specified hashtags, if provided. Hashtags that did not previously exist are also created. a request body should take this format:
+`POST /tweets` creates a new a tweet and associates it with the specified hashtags, if provided. Hashtags that did not previously exist are also created. a request body should take this format:
 
   ```
     "tweet":
@@ -118,7 +118,7 @@ The endpoint returns the created tweet as JSON.
       "hashtag_names": [ "est", "rerum", "distinctio" ] }
 ```
 
-`/hashtags/popular` returns the names of the 10 most popular hashtags. The output looks like this:
+`GET /hashtags/popular` returns the names of the 10 most popular hashtags. The output looks like this:
 
 ```
   [ "est",
