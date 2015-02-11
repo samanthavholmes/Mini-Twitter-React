@@ -2,7 +2,7 @@
 
 ## Learning Competencies
 
-- Build a client side heavy Rails application.
+- Build a client-side-heavy Rails application.
 - Consume a JSON API.
 - Build Single Page App.
 - write organized JavaScript code
