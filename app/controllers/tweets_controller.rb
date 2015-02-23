@@ -24,7 +24,8 @@ class TweetsController < ApplicationController
 
     hashtags_names = params[:hashtags] || []
     hashtags_names.each do |name|
-      tweet.hashtags << Hashtag.first_or_create(name: name)
+      hashtag = Hashtag.find(:first, conditions: ["name=?", name])
+      hashtag ? tweet.hashtags << hashtag : tweet.hashtags.create(name: name)
     end
 
     render json: tweet.to_json(methods: :hashtag_names)
