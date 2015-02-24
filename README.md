@@ -50,6 +50,10 @@ solution might include:
 
 ### Release 1: Build
 
+Start by following the instructions & sample code here:
+
+https://github.com/chi-squirrels-2015/emails-backbone-example
+
 Okay, now build the thing. You should avoid any changes to the server-side code, although if you feel like changes are necessary, implement them and make sure the tests reflect your alterations. You will need to remove the filler elements in `app/views/index.html`. Structural changes to HTML and CSS should not be necessary, and it is generally a bad idea to unilaterally change a resource that your entire team depends on. Any changes to the existing code base, no matter how small, should be done intentionally and in consultation with your entire team.
 
 **Build your solution in the following order:**
