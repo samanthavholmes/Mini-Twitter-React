@@ -20,15 +20,6 @@ $ rake db:create && rake db:migrate && rake db:seed
 $ rails server
 ```
 
-to run the tests:
-```sh
-$ rake db:test:prepare
-$ rake spec
-
-$ brew install phantomjs
-$ RAILS_ENV=test bundle exec rake spec:javascript
-````
-
 ## Releases
 
 ### Release 0: Architect
@@ -51,19 +42,36 @@ Your site needs to have the following functionality:
 
 All of this will be accomplished using JavaScript. Spend some time thinking about your architecture – what objects do you need? What are their interfaces? What does your file structure look like? Make sure you aren't micromanaging or over-designing -- Big Design Up Front is never great -- but your team will benefit from some basic architecture desicisions before starting.
 
+Consider the following diagram, which highlights the different views your
+solution might include:
+
+![views diagram](doc/views.png)
+
+
 ### Release 1: Build
 
 Okay, now build the thing. You should avoid any changes to the server-side code, although if you feel like changes are necessary, implement them and make sure the tests reflect your alterations. You will need to remove the filler elements in `app/views/index.html`. Structural changes to HTML and CSS should not be necessary, and it is generally a bad idea to unilaterally change a resource that your entire team depends on. Any changes to the existing code base, no matter how small, should be done intentionally and in consultation with your entire team.
 
-### Release 2: Ensure
+**Build your solution in the following order:**
 
-JavaScript can be more difficult to test than ruby code, and OO design is often used as a replacement for full test coverage. That said, you should still be writing tests for your JavaScript code base. We've already installed [the jasmine-rails gem](https://github.com/searls/jasmine-rails) for you. Some guidelines:
+1. Tweet model
+2. Tweets collection
 
-   - testing your view objects and DOM interaction is difficult, as it requires a fair amount of setup to get right. It is more important that you test [the cyclomatic complexity](http://en.wikipedia.org/wiki/Cyclomatic_complexity#Implications_for_software_testing) of your controllers and models.
-   - AJAX calls are also hard to test, and should be stubbed out for the purposes of your test suite. [Use Jasmine spies](https://github.com/pivotal/jasmine/wiki/Spies) to test that these functions have been called.
-   - Your integration testing should be handled through capybara. You can use [the Poltergeist driver](https://github.com/teampoltergeist/poltergeist) for feature testing with a focus on JavaScript functionality.
+> Before moving on: Get approval from an instructor once you can fetch tweets from the server.
 
-### Release 3: Expand
+3. Timeline view
+4. Tweet view
+
+> Before moving on: Ask an instructor for a review of your Timeline & Tweet views
+
+5. SearchBox view
+6. Compose view
+7. HashTag model
+8. HashTags view
+9. HashTag view
+
+
+### Release 2: Expand
 
 The benefits of OO architecture is that it is easily extendable. Add an additional feature to your application, like:
 
