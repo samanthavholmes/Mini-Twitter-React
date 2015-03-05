@@ -90,4 +90,27 @@ describe TweetsController do
     end
   end
 
+  describe "POST tweets" do
+    ridiculous_tag_name = "Slumgullion Millionaire"
+
+    let(:tweet_with_new_hashtag_params) do
+      {
+        tweet: { content: ("Test" + Time.now.to_i.to_s) },
+        hashtags: [ridiculous_tag_name]
+      }
+    end
+
+    it "creates a new hashtag when the tag does not exist" do
+      expect {
+        post :create, tweet_with_new_hashtag_params
+      }.to change(Hashtag, :count).by(1)
+    end
+
+    it "does not create a new hashtag when the tag exists" do
+      Hashtag.create(name: ridiculous_tag_name)
+      expect {
+        post :create, tweet_with_new_hashtag_params
+      }.to change(Hashtag, :count).by(0)
+    end
+  end
 end
