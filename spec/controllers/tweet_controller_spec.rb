@@ -93,6 +93,10 @@ describe TweetsController do
   describe "POST tweets" do
     ridiculous_tag_name = "Slumgullion Millionaire"
 
+    before :each do
+      Hashtag.create!(name:"Unwanted tag");
+    end
+
     let(:tweet_with_new_hashtag_params) do
       {
         tweet: { content: ("Test" + Time.now.to_i.to_s) },
@@ -101,7 +105,6 @@ describe TweetsController do
     end
 
     it "creates a new hashtag when the tag does not exist" do
-    Hashtag.create!(name:"Unwanted tag");
       expect {
         post :create, tweet_with_new_hashtag_params
       }.to change(Hashtag, :count).by(1)
