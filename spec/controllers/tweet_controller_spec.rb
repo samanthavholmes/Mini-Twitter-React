@@ -101,6 +101,7 @@ describe TweetsController do
     end
 
     it "creates a new hashtag when the tag does not exist" do
+    Hashtag.create!(name:"Unwanted tag");
       expect {
         post :create, tweet_with_new_hashtag_params
       }.to change(Hashtag, :count).by(1)
