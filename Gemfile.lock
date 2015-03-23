@@ -162,7 +162,7 @@ DEPENDENCIES
   jasmine-rails
   jquery-rails
   pg
-  rails
+  rails (~> 4.2)
   rspec-rails (~> 2.14)
   sass-rails
   uglifier (>= 1.0.3)
