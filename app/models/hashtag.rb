@@ -1,6 +1,4 @@
 class Hashtag < ActiveRecord::Base
-  attr_accessor :name
-
   validates_uniqueness_of :name
   has_many :tweet_tags
   has_many :tweets, through: :tweet_tags
