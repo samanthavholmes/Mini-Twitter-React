@@ -15,7 +15,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-    tweet = Tweet.new(params[:tweet])
+    tweet = Tweet.new(tweet_params)
     tweet.content ||= Faker::Lorem.sentence
     tweet.username ||= Faker::Name.name
     tweet.handle ||= "@" + Faker::Internet.user_name
@@ -28,6 +28,12 @@ class TweetsController < ApplicationController
     end
 
     render json: tweet.to_json(methods: :hashtag_names)
+  end
+
+  private
+
+  def tweet_params
+    params.require(:tweet).permit( :content, :username, :handle, :avatar_url )
   end
 
 end
