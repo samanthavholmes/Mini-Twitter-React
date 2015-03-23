@@ -6,5 +6,5 @@ class Hashtag < ActiveRecord::Base
 
   def to_param
     name.to_s
-end
+  end
 end
