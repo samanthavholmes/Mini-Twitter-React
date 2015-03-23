@@ -9,26 +9,29 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140720192259) do
+ActiveRecord::Schema.define(version: 20140720192259) do
 
-  create_table "hashtags", :force => true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "hashtags", force: :cascade do |t|
     t.string "name"
   end
 
-  create_table "tweet_tags", :force => true do |t|
+  create_table "tweet_tags", force: :cascade do |t|
     t.integer "tweet_id"
     t.integer "hashtag_id"
   end
 
-  create_table "tweets", :force => true do |t|
+  create_table "tweets", force: :cascade do |t|
     t.string   "content"
     t.string   "username"
     t.string   "handle"
     t.string   "avatar_url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

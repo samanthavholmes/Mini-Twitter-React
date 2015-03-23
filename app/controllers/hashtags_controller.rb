@@ -5,7 +5,7 @@ class HashtagsController < ApplicationController
               .group("hashtags.id")
               .order('hashtag_count desc')
               .limit(10)
-    hashtags.map! { |tag| tag.name }
+    hashtags = hashtags.map { |tag| tag.name }
     render json: hashtags.to_json
   end
 end
