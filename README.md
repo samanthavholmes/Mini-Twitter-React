@@ -92,13 +92,21 @@ The benefits of OO architecture is that it is easily extendable. Add an addition
 
 `POST /tweets` creates a new a tweet and associates it with the specified hashtags, if provided. Hashtags that did not previously exist are also created. a request body should take this format:
 
-  ```
-    "tweet":
-      { "avatar_url":"http://robohash.org/marco_schumm",
-      "content":"Ut fugit ut labore repellendus.",
-      "handle":"@marco_schumm",
-      "username":"Adaline Bins" }
-    hashtags: [ 'foo', 'bar', 'baz' ]
+  ```json
+{
+   "avatar_url":"http://robohash.org/Margot Morar II",
+   "content":"This is my new tweet",
+   "created_at":"2015-07-10T22:18:20Z",
+   "handle":"@royal",
+   "id":503,
+   "updated_at":"2015-07-10T22:18:20Z",
+   "username":"Margot Morar II",
+   "hashtag_names":[
+      "foo",
+      "bar",
+      "baz"
+   ]
+}
   ```
 
 If no data is provided for avatar_url, content, handle, or username, fake data is used instead.
