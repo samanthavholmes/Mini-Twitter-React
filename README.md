@@ -119,14 +119,26 @@ The endpoint returns the created tweet as JSON.
 `GET /hashtags/popular` returns the names of the 10 most popular hashtags. The output looks like this:
 
 ```
-  [ "est",
-    "voluptas",
-    "consequatur",
-    "at",
-    "accusamus",
-    "doloremque",
-    "culpa",
-    "quod",
-    "iure",
-    "sint" ]
+[
+   {
+      "hashtag_count":"39",
+      "name":"labore"
+   },
+   {
+      "hashtag_count":"35",
+      "name":"ratione"
+   },
+   {
+      "hashtag_count":"35",
+      "name":"architecto"
+   },
+   {
+      "hashtag_count":"33",
+      "name":"vero"
+   },
+   {
+      "hashtag_count":"32",
+      "name":"ut"
+   }
+]
 ```
