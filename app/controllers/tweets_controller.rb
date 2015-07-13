@@ -34,6 +34,6 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.permit(:tweet).permit( :content, :username, :handle, :avatar_url )
+    params.require(:tweet).permit( :content, :username, :handle, :avatar_url )
   end
 end
