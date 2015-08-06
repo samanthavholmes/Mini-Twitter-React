@@ -79,15 +79,6 @@ describe TweetsController do
       post :create, attributes
       expect(response.body).to eq(Tweet.last.to_json(methods: :hashtag_names))
     end
-
-    it "should provide fake attributes if none are given" do
-      post :create, { tweet: { } }
-      expect(Tweet.last.content).to_not be_nil
-      expect(Tweet.last.avatar_url).to_not be_nil
-      expect(Tweet.last.handle).to_not be_nil
-      expect(Tweet.last.username).to_not be_nil
-
-    end
   end
 
   describe "POST tweets" do
