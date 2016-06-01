@@ -9,6 +9,7 @@ gem 'pg'
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
+  gem 'react-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
