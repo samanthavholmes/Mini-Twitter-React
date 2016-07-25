@@ -5,3 +5,7 @@
 ## Technologies
 
   Ruby on Rails backend. HTML5/CSS3. Javascript- React frontend.
+
+## To-Do
+
+- [ ] Deploy using AWS
