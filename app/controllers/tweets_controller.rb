@@ -7,16 +7,22 @@ class TweetsController < ApplicationController
 
   def search
     hashtag = Hashtag.where(name: params[:keyword]).first
-    if hashtag
-      render json: hashtag.tweets.ordered_json
-    else
-      render :nothing => true, status: 404
+    if request.xhr?
+      if hashtag
+        render json: hashtag.tweets.ordered_json
+      else
+        render :nothing => true, status: 404
+      end
     end
   end
 
   def create
-    tweet = Tweet.new(tweet_params)
-    tweet.content ||= Faker::Lorem.sentence
+    if request.xhr?
+      tweet = Tweet.new(content: params[:tweet])
+    else
+      tweet = Tweet.new(tweet_params)
+      tweet.content ||= Faker::Lorem.sentence
+    end
     tweet.username ||= Faker::Name.name
     tweet.handle ||= "@" + Faker::Internet.user_name
     tweet.avatar_url ||= Faker::Avatar.image(tweet.username)
